@@ -15,7 +15,7 @@ jobs:
   # We have to duplicate jobs since apparently secrets cannot be matrix
   # operations.
 
-  test-encoded:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +23,12 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Make sure the container is built and not using a registry
-        run: "sed -i '/image:/s/: .*/: Dockerfile/' action.yaml"
+        run: |
+          sed -i '/image:/s/: .*/: Dockerfile/' action.yaml
+          git config user.email 'dummy@dummy.com'
+          git config user.name 'dummy'
+          git add .
+          git commit --allow-empty-message --message=''
 
       - name: Run the current action
         uses: ./
