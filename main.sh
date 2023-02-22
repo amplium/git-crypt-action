@@ -17,4 +17,7 @@ else
 	exit 1
 fi
 
+pwd
+ls -lha
+
 echo "${key}" | git-crypt unlock -
