@@ -1,0 +1,20 @@
+---
+name: Unlock Git-Crypt secrets
+description: Unlock git-crypt files with a minimal alpine based Docker image
+author: Amplium
+
+branding:
+  icon: unlock
+  color: green
+
+inputs:
+  key:
+    description: Raw content of the encryption key
+  key-encoded:
+    description: Base64 encoded content of the encryption key
+
+runs:
+  using: docker
+  image: Dockerfile
+  entrypoint: /main.sh
+  post-entrypoint: /post.sh

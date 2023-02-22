@@ -1,0 +1,31 @@
+---
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - master
+
+  pull_request:
+    branches:
+      - master
+
+jobs:
+
+  # We have to duplicate jobs since apparently secrets cannot be matrix
+  # operations.
+
+  test-encoded:
+    runs-on: ubuntu-latest
+    container: shellspec/shellspec:latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: "sed -i '/image:/s/: .*/: Dockerfile/' action.yaml"
+
+      - uses: ./
+        with:
+          key-encoded: ${{ secrets.key-encoded }}
+
+      - run: shellspec
