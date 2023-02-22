@@ -26,6 +26,6 @@ jobs:
 
       - uses: ./
         with:
-          key-encoded: ${{ secrets.key-encoded }}
+          key_encoded: ${{ secrets.KEY_ENCODED }}
 
       - run: shellspec

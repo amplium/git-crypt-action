@@ -10,7 +10,7 @@ branding:
 inputs:
   key:
     description: Raw content of the encryption key
-  key-encoded:
+  key_encoded:
     description: Base64 encoded content of the encryption key
 
 runs:

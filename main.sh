@@ -5,7 +5,7 @@ set -u
 
 if [ "${INPUT_KEY:+x}" = 'x' ]; then
 	if [ "${INPUT_KEY_ENCODED:+x}" = 'x' ]; then
-		echo 'Either "key" or "key-encoded" should be specified, not both'
+		echo 'Either "key" or "key_encoded" should be specified, not both'
 		exit 1
 	fi
 
@@ -13,7 +13,7 @@ if [ "${INPUT_KEY:+x}" = 'x' ]; then
 elif [ "${INPUT_KEY_ENCODED:+x}" = 'x' ]; then
 	key="$(echo "${INPUT_KEY_ENCODED}" | base64 -d)"
 else
-	echo 'Neither "key" or "key-encoded" specified, aborting'
+	echo 'Neither "key" or "key_encoded" specified, aborting'
 	exit 1
 fi
 
