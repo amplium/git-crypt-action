@@ -17,18 +17,21 @@ jobs:
 
   test-encoded:
     runs-on: ubuntu-latest
-    container: shellspec/shellspec:latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - run: "sed -i '/image:/s/: .*/: Dockerfile/' action.yaml"
+      - name: Make sure the container is built and not using a registry
+        run: "sed -i '/image:/s/: .*/: Dockerfile/' action.yaml"
 
-      - uses: ./
+      - name: Run the current action
+        uses: ./
         with:
           key_encoded: |
             AEdJVENSWVBUS0VZAAAAAgAAAAAAAAABAAAABAAAAAAAAAADAAAAIFCxz+W3/HMKpHM1da+6Dj9/
             P9esuJAuRm6Ie9KkIe02AAAABQAAAEBj19dRJ3RpTuTSsTOiWOviyEir3fEVwinDo8VplMzKbfWi
             7l3NLXVnWBfqy2bNr3SHLnNv0zlKa0dSIJ9YsWq9AAAAAA==
 
-      - run: shellspec
+      - name: Run tests
+        run: docker run --rm -it -v "${PWD}:/src" shellspec/shellspec:latest
