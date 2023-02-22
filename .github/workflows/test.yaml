@@ -34,4 +34,4 @@ jobs:
             7l3NLXVnWBfqy2bNr3SHLnNv0zlKa0dSIJ9YsWq9AAAAAA==
 
       - name: Run tests
-        run: docker run --rm -it -v "${PWD}:/src" shellspec/shellspec:latest
+        run: docker run --rm -t -v "${PWD}:/src" shellspec/shellspec:latest
