@@ -17,7 +17,6 @@ else
 	exit 1
 fi
 
-pwd
-ls -lha
+git config --global --add safe.directory "${PWD}"
 
 echo "${key}" | git-crypt unlock -
