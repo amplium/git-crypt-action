@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: amplium/git-crypt-action@latest
+      - uses: amplium/git-crypt-action@master
         with:
           key: ${{ secrets.KEY }}
 ```
