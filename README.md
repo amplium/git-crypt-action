@@ -23,5 +23,5 @@ jobs:
       - uses: actions/checkout@v3
       - uses: amplium/git-crypt-action@master
         with:
-          key: ${{ secrets.KEY }}
+          key_encoded: ${{ secrets.KEY }}
 ```
