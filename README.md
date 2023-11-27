@@ -10,7 +10,7 @@ To use this workflow, export your key and encode it with `base64`, then
 register it as a GitHub Secret.
 
 ```bash
-❯ git-crypt export-key - | base64
+❯ git-crypt export-key -- - | base64
 ```
 
 Finally, use it in your workflow.
