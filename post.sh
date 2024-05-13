@@ -1,3 +1,4 @@
 #!/bin/sh
 
-git-crypt lock
+git stash
+git-crypt lock -a
