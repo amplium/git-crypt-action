@@ -1,3 +1,3 @@
 #!/bin/sh
 
-git-crypt lock
+git-crypt lock -af
