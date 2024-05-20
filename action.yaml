@@ -15,6 +15,6 @@ inputs:
 
 runs:
   using: docker
-  image: docker://ghcr.io/amplium/git-crypt-action:v0.1.4
+  image: docker://ghcr.io/amplium/git-crypt-action:v0.1.5
   entrypoint: /main.sh
   post-entrypoint: /post.sh
